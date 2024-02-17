@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const bodyClasses = `flex flex-col min-h-screen justify-between ${inter.className}`;
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={bodyClasses}>
+        <header className="h-12"></header>
+        <main className="mb-auto">
+          {children}
+        </main>
+        <footer className="h-28 bg-slate-800"><h4 className="text-gray-300">FOOTER</h4></footer>
+      </body>
     </html>
   );
 }
